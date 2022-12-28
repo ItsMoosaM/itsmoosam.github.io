@@ -63,7 +63,7 @@ const cleanUrl = () => {
         </div>
         <a href="/#home">
             <div class="toTop">
-                <img src="circle-up-solid.svg" class="arrow" alt="">
+                <img src="../assets/circle-up-solid.svg" class="arrow" alt="">
             </div>
         </a>
     </div>
