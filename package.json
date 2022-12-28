@@ -1,0 +1,23 @@
+{
+  "name": "itsmoosam-portfolio",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "deploy": "node scripts/deploy.js"
+  },
+  "dependencies": {
+    "aos": "^2.3.4",
+    "pinia": "^2.0.28",
+    "vue": "^3.2.45",
+    "vue-router": "^4.1.6"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.0.0",
+    "execa": "^5.1.1",
+    "vite": "^4.0.0"
+  }
+}
