@@ -101,6 +101,7 @@ const cleanUrl = () => {
 .containers {
     height: 100vh;
     text-align: center;
+    background-image: radial-gradient(#001824, transparent, transparent);
 }
 
 .header-container {
@@ -118,12 +119,20 @@ const cleanUrl = () => {
     align-items: center;
     justify-content: center;
     cursor: pointer;
+
+    background-image: linear-gradient(to right bottom, #00A6B9, #07D100);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .nav-container {
     grid-column: span 6;
     display: grid;
     justify-content: center;
+
+    background-image: linear-gradient(to right, #00A6B9, #07D100);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 ul {
@@ -148,7 +157,11 @@ ul {
 
 .links a:hover {
     transform: scale(1.1);
-    background-color: #00535D;
+
+    -webkit-background-clip: none;
+    -webkit-text-fill-color: #00A6B9;
+
+    background-color: #00545d39;
     /* color: #00A6B9; */
     transition: background-color .6s ease, transform .2s ease, color .6s ease;
 }
@@ -166,7 +179,11 @@ ul {
     font-size: 150%;
     position: absolute;
     text-align: center;
-    animation: titleEnter 2s alternate 1s forwards;
+    animation: titleEnter 4s alternate 1s forwards;
+
+    background-image: linear-gradient(to right, #00A6B9, #07D100);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .text-inner-container h4 {
@@ -178,11 +195,18 @@ ul {
     0% {
         opacity: 0;
         transform: scale(0.6);
+        /* background-image: linear-gradient(to right, #00A6B9, #07D100); */
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1);
     }
 
     100% {
         opacity: 1;
         transform: scale(1);
+        /* background-image: linear-gradient(to right, #00A6B9, #07D100); */
     }
 }
 
@@ -192,14 +216,15 @@ ul {
     grid-template-columns: repeat(6, 1fr);
     grid-template-rows: repeat(10, 1fr);
     gap: 1rem;
+    background-image: radial-gradient(rgba(0, 166, 185, 0.6), transparent, transparent);
 }
 
 .rank-info {
     border-radius: 1rem;
     grid-column: span 2;
-    margin-left: 1rem;
+    margin: 1rem 0rem 1rem 1rem;
     grid-row: span 9;
-    background-color: #00535D;
+    background-color: #00A6B9;
 }
 
 .mySkills {
@@ -222,7 +247,14 @@ ul {
 
 .theSkills {
     border-radius: 2rem;
-    background-color: #00535D;
     grid-column: span 1;
+    backdrop-filter: blur(14px) saturate(180%);
+    -webkit-backdrop-filter: blur(14px) saturate(180%);
+    background-color: rgba(0, 166, 185, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.125);
+}
+
+.contact {
+
 }
 </style>
