@@ -1,5 +1,13 @@
 <script setup>
 
+
+
+const cleanUrl = () => {
+    history.pushState('object or string', 'Title', '/ ');
+    // location.href = "/"
+}
+
+// setInterval(cleanUrl(), 1000)
 </script>
 
 <template>
@@ -33,7 +41,7 @@
             </div>
             <div class="rank-info">
             </div>
-            <div data-aos="fade-in" class="mySkills">
+            <div class="mySkills">
                 <div class="theSkills 1"></div>
                 <div class="theSkills 2"></div>
                 <div class="theSkills 3"></div>
@@ -44,7 +52,7 @@
                 <div class="theSkills 8"></div>
             </div>
         </div>
-        <div data-aos="fade-in" id="projects" class="projects containers">
+        <div id="projects" class="projects containers">
             <h1>My Projects</h1>
         </div>
         <div id="about" class="about containers">
@@ -54,7 +62,9 @@
             <h1>Contact</h1>
         </div>
         <a href="/#home">
-            <div class="toTop"><i class='fas fa-arrow-alt-circle-up'></i></div>
+            <div class="toTop">
+                <img src="circle-up-solid.svg" class="arrow" alt="">
+            </div>
         </a>
     </div>
 </template>
@@ -74,14 +84,18 @@
     background-color: transparent;
 }
 
-.toTop i {
+.arrow {
+    width: 3rem;
+    height: auto;
     font-size: 3rem;
     background-color: transparent;
     color: #00A6B9;
+    filter: invert(44%) sepia(79%) saturate(822%) hue-rotate(146deg) brightness(94%) contrast(102%);
 }
 
 .toTop:hover {
-    background-color: #001824;
+    transition: .2s ease;
+    background-color: #00273a;
 }
 
 .containers {
@@ -103,6 +117,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
 }
 
 .nav-container {
@@ -203,7 +218,9 @@ ul {
     align-items: center;
     grid-column: span 6;
     grid-row: span 1;
-}.theSkills{
+}
+
+.theSkills {
     border-radius: 2rem;
     background-color: #00535D;
     grid-column: span 1;
