@@ -29,6 +29,7 @@
   padding: 0%;
   box-sizing: border-box;
   background-color: inherit;
+  scroll-behavior: smooth !important;
 }
 :root {
   scroll-behavior: smooth;
@@ -36,10 +37,12 @@
   color-scheme: light dark;
   color: #00a6b9;
   background-color: #010208;
+  scroll-behavior: smooth !important;
 }
 
 body {
   overflow: overlay;
   background-color: transparent;
   margin: 0;
+  scroll-behavior: smooth !important;
 }

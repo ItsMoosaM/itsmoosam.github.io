@@ -72,7 +72,7 @@ const cleanUrl = () => {
                 <div class="theSkills 1">
                     <img src="../assets/blender_logo_icon_214689.svg" alt="" srcset="">
                     <h2>Blender</h2>
-                    <p>I learnt blender</p>
+                    <p>I have learnt blender, and am fairly decent at it.</p>
                 </div>
                 <div class="theSkills 2"></div>
                 <div class="theSkills 3"></div>
@@ -325,7 +325,8 @@ ul {
 
     display: grid;
     grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    max-height: 15rem;
     align-items: center;
     justify-content: center;
     color: #001824;
@@ -349,9 +350,11 @@ ul {
 }
 
 .theSkills p {
-    grid-column: span 4;
+    grid-column: span 6;
+    grid-row: span 2;
     background-color: transparent;
-
+    margin-left: .5rem;
+    text-align: left;
 }
 
 .ranking-container {
@@ -428,7 +431,9 @@ ul {
 .yes {
     background-color: #04922F;
     border-top: #007523 solid 1px;
-}.yes:hover{
+}
+
+.yes:hover {
     background-color: #07D100;
     transition: all .5s ease;
 }
