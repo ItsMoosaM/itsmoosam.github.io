@@ -3,15 +3,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap");
 ::-moz-selection {
   /* Code for Firefox */
-  color: #001824;
+  color: #07D100;
   background: #00a6b9;
-  -webkit-text-fill-color: #001824;
+  -webkit-text-fill-color: #097428;
 }
 
 ::selection {
-  color: #001824;
+  color: #07D100;
   background: #00a6b9;
-  -webkit-text-fill-color: #001824;
+  -webkit-text-fill-color: #097428;
 }
 ::-webkit-scrollbar {
   width: 10px;
