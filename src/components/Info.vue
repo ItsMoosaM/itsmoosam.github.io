@@ -1,12 +1,16 @@
 <script setup>
 
-
+import { ref } from 'vue';
 
 const cleanUrl = () => {
     history.pushState('object or string', 'Title', '/ ');
     // location.href = "/"
 }
 
+let isVisible = ref(false);
+const toggleNav = () => {
+    isVisible.value = !isVisible.value
+}
 // setInterval(cleanUrl(), 1000)
 </script>
 
@@ -18,8 +22,10 @@ const cleanUrl = () => {
                 <img src="../assets/MMM-Logo-No-Reflection.png" alt="">
                     <h1>ItsMoosaM</h1>
                 </div> -->
-                <div class="nav-container">
+                <div class="nav-container" :class="{ visible: isVisible }">
                     <ul>
+                        <li class="links icon"><a class="barIcon" href="javascript:void(0)" @click="toggleNav"><img v-if="!isVisible"
+                                    src="../assets/bars-solid.svg" alt=""><img  v-if="isVisible" src="../assets/xmark-solid.svg" alt=""></a></li>
                         <li class="links 1"><a href="/#home">Home</a></li>
                         <li class="links 2"><a href="/#skills">Skills</a></li>
                         <li class="links 3"><a href="/#projects">Projects</a></li>
@@ -168,7 +174,6 @@ const cleanUrl = () => {
     grid-column: span 8;
     display: grid;
     justify-content: center;
-
     background-image: linear-gradient(to right, #00A6B9, #07D100);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -189,7 +194,7 @@ ul {
 
 .links a {
     display: block;
-    color: white;
+    color: #07D100;
     text-align: center;
     padding: 1rem 2rem;
     text-decoration: none;
@@ -197,13 +202,28 @@ ul {
 
 .links a:hover {
     transform: scale(1.1);
-    /* font-family: 'Source Code Pro'; */
     -webkit-background-clip: none;
     -webkit-text-fill-color: #00A6B9;
 
-    background-color: #00545d39;
-    /* color: #00A6B9; */
-    transition: all 10s ease, background-color .6s ease, transform .2s ease, color .6s ease;
+    /* background-color: #00545d39; */
+    color: #00A6B9;
+    transition: all .6s ease, background-color .6s ease, transform .2s ease, color .6s ease;
+}
+
+.icon {
+    display: none;
+}
+
+.barIcon {
+    -webkit-background-clip: none;
+    -webkit-text-fill-color: transparent;
+    background-color: transparent;
+}
+
+.barIcon img {
+    background-color: transparent;
+    height: 2rem;
+    filter: invert(49%) sepia(81%) saturate(1561%) hue-rotate(78deg) brightness(101%) contrast(120%);
 }
 
 .text-container {
@@ -272,12 +292,12 @@ ul {
     grid-template-rows: repeat(7, 1fr);
     gap: 1rem;
     /* background-image: radial-gradient(rgba(0, 166, 185, 0.6), transparent, transparent); */
-    background-image: linear-gradient(to bottom, #010208, #010208, transparent, transparent, #010208), url(../assets/MMM-Logo-No-Reflection.png);
+    background-image: linear-gradient(to bottom, #010208, #010208, transparent, transparent, transparent, #010208), url(../assets/MMM-Logo-No-Reflection.png);
     background-position: center;
 }
 
 .rank-info {
-    border-radius: 1rem;
+    /* border-radius: 1rem; */
     grid-column: span 1;
     margin: 1rem 0rem 1rem 1rem;
     grid-row: span 6;
@@ -300,7 +320,7 @@ ul {
     grid-row: span 6;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(3, 1fr);
+    grid-template-rows: repeat(3, minmax(0, 1fr));
     gap: 1rem;
     row-gap: 1rem;
     margin: 1rem 1rem 1rem 0rem;
@@ -344,7 +364,7 @@ ul {
 
 .theSkills h2 {
     grid-column: span 4;
-    font-size: 150%;
+    /* font-size: 150%; */
     text-align: center;
     background-color: transparent;
 }
@@ -380,7 +400,7 @@ ul {
 
     overflow: overlay;
     padding: 1rem;
-    border-radius: 2rem;
+    border-radius: .5rem;
     background-color: #00A6B9;
     backdrop-filter: blur(14px) saturate(180%);
     -webkit-backdrop-filter: blur(14px) saturate(180%);
@@ -395,8 +415,9 @@ ul {
     margin: auto;
 
     border: #353535 solid 2px;
-    width: 50%;
+    width: 80%;
     height: 80%;
+    max-width: 8rem;
     border-radius: 1rem;
     display: grid;
     grid-template-columns: repeat(1, 1fr);
@@ -439,4 +460,48 @@ ul {
 }
 
 .contact {}
+
+@media screen and (max-width: 640px) {
+
+    .nav-container .links {
+        display: none;
+    }
+
+    .nav-container .icon {
+        float: center;
+        display: block;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .nav-container.visible .links {
+        display: block
+    }
+
+    .nav-container.visible {
+        background-color: #07D100;
+        backdrop-filter: blur(6px) saturate(180%);
+        -webkit-backdrop-filter: blur(6px) saturate(180%);
+        background-color: rgba(0, 166, 185, 0.75);
+        border-radius: 1rem;
+        border: 0px solid rgba(255, 255, 255, 0.125);
+        color: #07D100;
+        width: 100%;
+        height: 100vh;
+        display: block;
+        z-index: 10;
+    }
+
+    .nav-container.visible .links {
+        -webkit-text-fill-color: #07D100;
+        background-color: transparent;
+        text-shadow: none;
+        color: #07D100;
+        float: none;
+        display: block;
+    }
+    .nav-container.visible ul {
+        background-color: transparent;
+    }
+}
 </style>
