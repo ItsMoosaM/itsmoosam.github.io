@@ -24,13 +24,16 @@ const toggleNav = () => {
                 </div> -->
                 <div class="nav-container" :class="{ visible: isVisible }">
                     <ul>
-                        <li class="links icon"><a class="barIcon" href="javascript:void(0)" @click="toggleNav"><img v-if="!isVisible"
-                                    src="../assets/bars-solid.svg" alt=""><img  v-if="isVisible" src="../assets/xmark-solid.svg" alt=""></a></li>
-                        <li class="links 1"><a href="/#home">Home</a></li>
-                        <li class="links 2"><a href="/#skills">Skills</a></li>
-                        <li class="links 3"><a href="/#projects">Projects</a></li>
-                        <li class="links 4"><a href="/#about">About</a></li>
-                        <li class="links 5"><a href="/#contact">Contact</a></li>
+                        <TransitionGroup name="nav-transition">
+                            <li class="links icon"><a class="barIcon" href="javascript:void(0)" @click="toggleNav"><img
+                                        v-if="!isVisible" src="../assets/bars-solid.svg" alt=""><img v-if="isVisible"
+                                        src="../assets/xmark-solid.svg" alt=""></a></li>
+                            <li class="links 1"><a href="/#home">Home</a></li>
+                            <li class="links 2"><a href="/#skills">Skills</a></li>
+                            <li class="links 3"><a href="/#projects">Projects</a></li>
+                            <li class="links 4"><a href="/#about">About</a></li>
+                            <li class="links 5"><a href="/#contact">Contact</a></li>
+                        </TransitionGroup>
                     </ul>
                 </div>
             </div>
@@ -48,22 +51,26 @@ const toggleNav = () => {
             <div class="mySkillsTitle">
                 <h1>My Skills</h1>
             </div>
-            <div class="rank-info">
-                <div class="ranking-info">
-                    The Dreyfus model of skill acquisition is a model of how learners acquire skills through formal
-                    instruction and practicing, used in the fields of education and operations research. Brothers Stuart
-                    and Hubert Dreyfus proposed the model in 1980 in an 18-page report on their research at the
-                    University of California, Berkeley, Operations Research Center for the United States Air Force
-                    Office of Scientific Research. The model proposes that a student passes through five distinct
-                    stages and was originally determined as: novice, competence, proficiency, expertise, and mastery.
-                </div>
-                <div class="ranking-container">
-                    <div class="ranking-scale-container">
-                        <div class="rank 1 top">Expert</div>
-                        <div class="rank 2 yes">Proficient</div>
-                        <div class="rank 3 yes">Competent</div>
-                        <div class="rank 4 yes">Advanced Beginner</div>
-                        <div class="rank 5 yes bottom">Novice</div>
+                <div class="rank-info">
+            <div class="ranking-container">
+                    <div class="ranking-info">
+                        The Dreyfus model of skill acquisition is a model of how learners acquire skills through formal
+                        instruction and practicing, used in the fields of education and operations research. Brothers
+                        Stuart
+                        and Hubert Dreyfus proposed the model in 1980 in an 18-page report on their research at the
+                        University of California, Berkeley, Operations Research Center for the United States Air Force
+                        Office of Scientific Research. The model proposes that a student passes through five distinct
+                        stages and was originally determined as: novice, competence, proficiency, expertise, and
+                        mastery.
+                    </div>
+                    <div class="ranking-scale-outer-container">
+                        <div class="ranking-scale-container">
+                            <div class="rank 1 top">Expert</div>
+                            <div class="rank 2 yes">Proficient</div>
+                            <div class="rank 3 yes">Competent</div>
+                            <div class="rank 4 yes">Advanced Beginner</div>
+                            <div class="rank 5 yes bottom">Novice</div>
+                        </div>
                     </div>
                     <!-- <div class="ranking-scale">
                         <div class="1">Expert</div>
@@ -107,6 +114,18 @@ const toggleNav = () => {
 </template>
 
 <style scoped>
+.list-move,
+.nav-transition-enter-active,
+.nav-transition-enter-active {
+    transition: opacity 1s linear, transform .5s ease;
+}
+
+.nav-transition-enter-from,
+.nav-transition-leave-to {
+    opacity: 0;
+    transform: scale(0) translateX(100px);
+}
+
 .toTop {
     width: 4rem;
     height: 4rem;
@@ -299,8 +318,8 @@ ul {
 .rank-info {
     /* border-radius: 1rem; */
     grid-column: span 1;
-    margin: 1rem 0rem 1rem 1rem;
     grid-row: span 6;
+    margin: 1rem 0rem 1rem 1rem;
     color: #010208;
 
 
@@ -346,7 +365,7 @@ ul {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     grid-template-rows: repeat(3, 1fr);
-    max-height: 15rem;
+    /* max-height: 15rem; */
     align-items: center;
     justify-content: center;
     color: #001824;
@@ -378,27 +397,26 @@ ul {
 }
 
 .ranking-container {
-    grid-row: span 1;
+    grid-column: span 1;
+    grid-row: span 6;
     height: 100%;
     width: 100%;
-    border-radius: 2rem;
-    background-color: #00A6B9;
-    backdrop-filter: blur(14px) saturate(180%);
-    -webkit-backdrop-filter: blur(14px) saturate(180%);
-    background-color: rgba(0, 166, 185, 0.75);
-    border: 1px solid rgba(255, 255, 255, 0.125);
+
 
     display: grid;
     grid-template-columns: repeat(1, 1fr);
-    grid-template-rows: repeat(2, 1fr);
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
     justify-content: center;
     align-items: center;
 }
 
 .ranking-info {
-    grid-column: span 2;
+    grid-column: span 1;
+    grid-row: span 1;
 
     overflow: overlay;
+    height: 100%;
     padding: 1rem;
     border-radius: .5rem;
     background-color: #00A6B9;
@@ -408,9 +426,22 @@ ul {
     border: 1px solid rgba(255, 255, 255, 0.125);
 }
 
-.ranking-scale-container {
+.ranking-scale-outer-container {
+
     grid-column: span 1;
-    grid-row: span 2;
+    grid-row: span 1;
+
+    width: 100%;
+    height: 100%;
+    border-radius: 1rem;
+    display: grid;
+
+    backdrop-filter: blur(14px) saturate(180%);
+    -webkit-backdrop-filter: blur(14px) saturate(180%);
+    background-color: rgba(0, 166, 185, 0.75);
+}
+
+.ranking-scale-container {
 
     margin: auto;
 
@@ -456,28 +487,45 @@ ul {
 
 .yes:hover {
     background-color: #07D100;
-    transition: all .5s ease;
+    transition: all .2s ease;
 }
 
 .contact {}
 
 @media screen and (max-width: 640px) {
-
     .nav-container .links {
         display: none;
+        opacity: 0;
+    }
+
+    @keyframes navDisapper {
+        0% {
+            opacity: 1;
+        }
+
+        90% {
+            opacity: 0;
+        }
+
+        100% {
+            display: none;
+        }
     }
 
     .nav-container .icon {
         float: center;
         display: block;
+        opacity: 1;
     }
+
 }
 
 @media screen and (max-width: 640px) {
     .nav-container.visible .links {
-        display: block
+        display: block;
+        opacity: 1;
+        transition: 1s all ease;
     }
-
     .nav-container.visible {
         background-color: #07D100;
         backdrop-filter: blur(6px) saturate(180%);
@@ -490,6 +538,12 @@ ul {
         height: 100vh;
         display: block;
         z-index: 10;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        transition: 1s all ease;
     }
 
     .nav-container.visible .links {
@@ -499,9 +553,13 @@ ul {
         color: #07D100;
         float: none;
         display: block;
+
+        transition: 1s all ease;
     }
+
     .nav-container.visible ul {
         background-color: transparent;
+        transition: 1s all ease;
     }
 }
 </style>
