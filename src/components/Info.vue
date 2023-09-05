@@ -69,7 +69,7 @@ const toggleNav = () => {
             <div class="mySkills">
                 <div class="theSkills 1">
                     <!-- <SliderVue class="slider"></SliderVue> -->
-                    <img src="src\assets\blender_logo.png" alt="">
+                    <img src="../assets/blender-logo.png" alt="">
                     <div class="textcontainer">
                         <h2>Blender</h2>
                         <h3>I started learning blender a few years ago as I was interested in 3D modeling and animation and
@@ -86,10 +86,10 @@ const toggleNav = () => {
                         </h3>
                         <!-- <button>More Info</button> -->
                     </div>
-                    <img class='unitylogo' src="src\assets\unity-new-20212110.jpg" alt="">
+                    <img class='unitylogo' src="../assets/unity-new-20212110.jpg" alt="">
                 </div>
                 <div class="theSkills 3">
-                    <img src="src\assets\html5-logo-31819.png" alt="">
+                    <img src="../assets/html5-logo-31819.png" alt="">
                     <div class="textcontainer">
                         <h2>Web Developement</h2>
                         <h3>
