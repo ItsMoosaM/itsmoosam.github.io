@@ -1,6 +1,8 @@
 <script setup>
-
+import SliderVue from '../components/Slider.vue';
 import { ref } from 'vue';
+import { useRouter } from "vue-router";
+const router = useRouter();
 
 const cleanUrl = () => {
     history.pushState('object or string', 'Title', '/ ');
@@ -51,18 +53,8 @@ const toggleNav = () => {
             <div class="mySkillsTitle">
                 <h1>My Skills</h1>
             </div>
-                <div class="rank-info">
-            <div class="ranking-container">
-                    <div class="ranking-info">
-                        The Dreyfus model of skill acquisition is a model of how learners acquire skills through formal
-                        instruction and practicing, used in the fields of education and operations research. Brothers
-                        Stuart
-                        and Hubert Dreyfus proposed the model in 1980 in an 18-page report on their research at the
-                        University of California, Berkeley, Operations Research Center for the United States Air Force
-                        Office of Scientific Research. The model proposes that a student passes through five distinct
-                        stages and was originally determined as: novice, competence, proficiency, expertise, and
-                        mastery.
-                    </div>
+            <!-- <div class="rank-info">
+                <div class="ranking-container">
                     <div class="ranking-scale-outer-container">
                         <div class="ranking-scale-container">
                             <div class="rank 1 top">Expert</div>
@@ -72,23 +64,41 @@ const toggleNav = () => {
                             <div class="rank 5 yes bottom">Novice</div>
                         </div>
                     </div>
-                    <!-- <div class="ranking-scale">
-                        <div class="1">Expert</div>
-                        <div class="2">Proficient</div>
-                        <div class="3">Competent</div>
-                        <div class="4">Advanced Beginner</div>
-                        <div class="5">Novice</div>
-                    </div> -->
                 </div>
-            </div>
+            </div> -->
             <div class="mySkills">
                 <div class="theSkills 1">
-                    <img src="../assets/blender_logo_icon_214689.svg" alt="" srcset="">
-                    <h2>Blender</h2>
-                    <p>I have learnt blender, and am fairly decent at it.</p>
+                    <!-- <SliderVue class="slider"></SliderVue> -->
+                    <img src="src\assets\blender_logo.png" alt="">
+                    <div class="textcontainer">
+                        <h2>Blender</h2>
+                        <h3>I started learning blender a few years ago as I was interested in 3D modeling and animation and
+                            am now able to make fairly decent projects with the skills I have acquired.</h3>
+                            <!-- <button @click="router.push('/projects')">More Info</button> -->
+                    </div>
                 </div>
-                <div class="theSkills 2"></div>
-                <div class="theSkills 3"></div>
+                <div class="theSkills 2">
+                    <div class="textcontainer">
+                        <h2>Game Development</h2>
+                        <h3>
+                        I have also been into game development for a few years and this has helped me learn programming concepts in the C# language,
+                        as the main game engine I used was Unity. You can look at some of my games <a @click="router.push('/projects')">here</a>.
+                        </h3>
+                        <!-- <button>More Info</button> -->
+                    </div>
+                    <img class='unitylogo' src="src\assets\unity-new-20212110.jpg" alt="">
+                </div>
+                <div class="theSkills 3">
+                    <img src="src\assets\html5-logo-31819.png" alt="">
+                    <div class="textcontainer">
+                        <h2>Web Developement</h2>
+                        <h3>
+                        I have also been learning web development on and off for about a year and this portfolio has 
+                        been developed with the skills I have learnt.
+                        </h3>
+                        <!-- <button>More Info</button> -->
+                    </div>
+                </div>
                 <div class="theSkills 4"></div>
                 <div class="theSkills 5"></div>
                 <div class="theSkills 6"></div>
@@ -335,7 +345,7 @@ ul {
 }
 
 .mySkills {
-    grid-column: span 2;
+    grid-column: span 3;
     grid-row: span 6;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -343,6 +353,7 @@ ul {
     gap: 1rem;
     row-gap: 1rem;
     margin: 1rem 1rem 1rem 0rem;
+    /* overflow: auto; */
 }
 
 .mySkillsTitle {
@@ -355,53 +366,88 @@ ul {
 
 .theSkills {
     border-radius: 2rem;
-    grid-column: span 1;
+    grid-column: span 2;
     grid-row: span 1;
     backdrop-filter: blur(14px) saturate(180%);
     -webkit-backdrop-filter: blur(14px) saturate(180%);
-    background-color: rgba(0, 166, 185, 0.75);
-    border: 1px solid rgba(255, 255, 255, 0.125);
-
+    background-color: rgba(0, 166, 185, 0.2);
+    /* border: px solid rgba(255, 255, 255, 0.1); */
+    margin: 0rem 2rem;
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     grid-template-rows: repeat(3, 1fr);
     /* max-height: 15rem; */
     align-items: center;
     justify-content: center;
-    color: #001824;
-
+    color: #00eeff;
 }
 
 .theSkills img {
     background-color: transparent;
     grid-column: span 2;
-    grid-row: span 1;
+    grid-row: span 3;
     width: 80%;
-    filter: invert(9%) sepia(13%) saturate(4419%) hue-rotate(160deg) brightness(92%) contrast(102%);
+    height: auto;
+    /* filter: invert(9%) sepia(13%) saturate(4419%) hue-rotate(160deg) brightness(92%) contrast(102%); */
     margin: auto;
 }
-
-.theSkills h2 {
+.textcontainer{
     grid-column: span 4;
-    /* font-size: 150%; */
+    grid-row: span 3;
+    background-color: transparent;
+    height: 100%;
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    overflow: overlay;
+}
+.textcontainer a{
+    cursor: pointer;
+    text-decoration: underline;
+}
+.textcontainer a:hover{
+    color: #09ff00;
+}
+.textcontainer h2 {
+    /* grid-column: span 4; */
+    margin: auto;
+    margin-top: 1rem;
+    font-size: 200%;
     text-align: center;
     background-color: transparent;
+    grid-row: span 1;
+    /* -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black; */
+    text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
 }
 
-.theSkills p {
-    grid-column: span 6;
+.textcontainer h3 {
+    /* grid-column: span 4; */
+    margin: auto;
+    width: 80%;
+    margin-top: .5rem;
+    font-size: 100%;
     grid-row: span 2;
     background-color: transparent;
-    margin-left: .5rem;
-    text-align: left;
+    /* margin-left: 1rem; */
+    text-align: justify;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
+.textcontainer button{
+    grid-row: span 1;
+    height: auto;
+    margin: .5rem 2rem;
+}
+.textcontainer button:hover{
 
+}
+.unitylogo{
+    border-radius: 1rem;
+}
 .ranking-container {
     grid-column: span 1;
     grid-row: span 6;
     height: 100%;
     width: 100%;
-
 
     display: grid;
     grid-template-columns: repeat(1, 1fr);
@@ -422,8 +468,8 @@ ul {
     background-color: #00A6B9;
     backdrop-filter: blur(14px) saturate(180%);
     -webkit-backdrop-filter: blur(14px) saturate(180%);
-    background-color: rgba(0, 166, 185, 0.75);
-    border: 1px solid rgba(255, 255, 255, 0.125);
+    background-color: rgba(0, 166, 185, 0.4);
+    /* border: 1px solid rgba(255, 255, 255, 0.125); */
 }
 
 .ranking-scale-outer-container {
@@ -438,7 +484,7 @@ ul {
 
     backdrop-filter: blur(14px) saturate(180%);
     -webkit-backdrop-filter: blur(14px) saturate(180%);
-    background-color: rgba(0, 166, 185, 0.75);
+    background-color: rgba(0, 166, 185, 0.4);
 }
 
 .ranking-scale-container {
@@ -526,6 +572,7 @@ ul {
         opacity: 1;
         transition: 1s all ease;
     }
+
     .nav-container.visible {
         background-color: #07D100;
         backdrop-filter: blur(6px) saturate(180%);

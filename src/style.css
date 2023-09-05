@@ -5,13 +5,13 @@
   /* Code for Firefox */
   color: #07D100;
   background: #00a6b9;
-  -webkit-text-fill-color: #097428;
+  -webkit-text-fill-color: #07D100;
 }
 
 ::selection {
   color: #07D100;
   background: #00a6b9;
-  -webkit-text-fill-color: #097428;
+  -webkit-text-fill-color: #07D100;
 }
 ::-webkit-scrollbar {
   width: 10px;
