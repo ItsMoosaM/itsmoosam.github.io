@@ -50,7 +50,7 @@ const toggleNav = () => {
             </div>
         </div>
         <div id="skills" class="skills containers">
-            <div class="mySkillsTitle">
+            <div class="ContainerTitle">
                 <h1>My Skills</h1>
             </div>
             <!-- <div class="rank-info">
@@ -68,21 +68,22 @@ const toggleNav = () => {
             </div> -->
             <div class="mySkills">
                 <div class="theSkills 1">
-                    <!-- <SliderVue class="slider"></SliderVue> -->
                     <img src="../assets/blender-logo.png" alt="">
                     <div class="textcontainer">
                         <h2>Blender</h2>
                         <h3>I started learning blender a few years ago as I was interested in 3D modeling and animation and
                             am now able to make fairly decent projects with the skills I have acquired.</h3>
-                            <!-- <button @click="router.push('/projects')">More Info</button> -->
+                        <!-- <button @click="router.push('/projects')">More Info</button> -->
                     </div>
                 </div>
                 <div class="theSkills 2">
                     <div class="textcontainer">
                         <h2>Game Development</h2>
                         <h3>
-                        I have also been into game development for a few years and this has helped me learn programming concepts in the C# language,
-                        as the main game engine I used was Unity. You can look at some of my games <a @click="router.push('/projects')">here</a>.
+                            I have also been into game development for a few years and this has helped me learn programming
+                            concepts in the C# language,
+                            as the main game engine I used was Unity. You can look at some of my games <a
+                                @click="router.push('/projects')">here</a>.
                         </h3>
                         <!-- <button>More Info</button> -->
                     </div>
@@ -93,8 +94,8 @@ const toggleNav = () => {
                     <div class="textcontainer">
                         <h2>Web Developement</h2>
                         <h3>
-                        I have also been learning web development on and off for about a year and this portfolio has 
-                        been developed with the skills I have learnt.
+                            I have also been learning web development on and off for about a year and this portfolio has
+                            been developed with the skills I have learnt.
                         </h3>
                         <!-- <button>More Info</button> -->
                     </div>
@@ -107,13 +108,54 @@ const toggleNav = () => {
             </div>
         </div>
         <div id="projects" class="projects containers">
-            <h1>My Projects</h1>
+            <div class="ContainerTitle">
+                <h1>My Projects</h1>
+            </div>
+            <div class="theProjects 1">
+                <div class="mainProjects">
+                    <iframe width="auto" height="auto" src="https://www.youtube.com/embed/1oGgOVob4So?si=fHHOgEznVREilLxc"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen></iframe>
+                </div>
+                <div class="textcontainer">
+                    <h2>The Blacksmith</h2>
+                    <h3>My most recent short film made with Blender. This short film helped
+                        learn alot about animmating and using prex</h3>
+                    <!-- <button @click="router.push('/projects')">More Info</button> -->
+                </div>
+            </div>
+            <div class="theProjects 2">
+                <div class="textcontainer">
+                    <h2>Back to Life</h2>
+                    <h3>
+                        A platformer  I made for a game jam.
+                    </h3>
+                    <!-- <button>More Info</button> -->
+                </div>
+                <div class="mainProjects"></div>
+            </div>
+            <div class="theProjects 3">
+                <div class="mainProjects"></div>
+                <div class="textcontainer">
+                    <h2>Web Developement</h2>
+                    <h3>
+                        I have also been learning web development on and off for about a year and this portfolio has
+                        been developed with the skills I have learnt.
+                    </h3>
+                    <!-- <button>More Info</button> -->
+                </div>
+            </div>
         </div>
         <div id="about" class="about containers">
-            <h1>About Me</h1>
+            <div class="ContainerTitle">
+                <h1>About Me</h1>
+            </div>
         </div>
         <div id="contact" class="contact containers">
-            <h1>Contact</h1>
+            <div class="ContainerTitle">
+                <h1>Contact</h1>
+            </div>
         </div>
         <a href="/#home">
             <div class="toTop">
@@ -170,6 +212,17 @@ const toggleNav = () => {
     height: 100vh;
     text-align: center;
     background-image: radial-gradient(#001824, transparent, transparent);
+}
+
+.skills {
+    /* height: 100vh; */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(7, 1fr);
+    gap: 1rem;
+    /* background-image: radial-gradient(rgba(0, 166, 185, 0.6), transparent, transparent); */
+    background-image: linear-gradient(to bottom, #010208, #010208, transparent, transparent, transparent, #010208), url(../assets/MMM-Logo-No-Reflection.png);
+    background-position: center;
 }
 
 .header-container {
@@ -314,16 +367,7 @@ ul {
     }
 }
 
-.skills {
-    height: 100vh;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(7, 1fr);
-    gap: 1rem;
-    /* background-image: radial-gradient(rgba(0, 166, 185, 0.6), transparent, transparent); */
-    background-image: linear-gradient(to bottom, #010208, #010208, transparent, transparent, transparent, #010208), url(../assets/MMM-Logo-No-Reflection.png);
-    background-position: center;
-}
+
 
 .rank-info {
     /* border-radius: 1rem; */
@@ -356,12 +400,51 @@ ul {
     /* overflow: auto; */
 }
 
-.mySkillsTitle {
+.projects {
+    grid-column: span 3;
+    grid-row: span 6;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(7, minmax(0, 1fr));
+    gap: 1rem;
+    /* row-gap: 1rem; */
+    margin: 1rem 1rem 1rem 0rem;
+}
+
+.theProjects {
+    border-radius: 2rem;
+    grid-column: span 2;
+    grid-row: span 2;
+    backdrop-filter: blur(14px) saturate(180%);
+    -webkit-backdrop-filter: blur(14px) saturate(180%);
+    background-color: rgba(0, 166, 185, 0.2);
+    /* border: px solid rgba(255, 255, 255, 0.1); */
+    margin: 0rem 2rem;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    /* max-height: 15rem; */
+    align-items: center;
+    justify-content: center;
+    color: #00eeff;
+}
+
+.theProjects .mainProjects {
+    background-color: transparent;
+    grid-column: span 2;
+    grid-row: span 3;
+    width: 80%;
+    height: auto;
+    /* filter: invert(9%) sepia(13%) saturate(4419%) hue-rotate(160deg) brightness(92%) contrast(102%); */
+    margin: auto;
+}
+
+.ContainerTitle {
     display: flex;
     justify-content: center;
     align-items: center;
     grid-column: span 3;
-    grid-row: span 1;
+    /* grid-row: span 1; */
 }
 
 .theSkills {
@@ -391,7 +474,8 @@ ul {
     /* filter: invert(9%) sepia(13%) saturate(4419%) hue-rotate(160deg) brightness(92%) contrast(102%); */
     margin: auto;
 }
-.textcontainer{
+
+.textcontainer {
     grid-column: span 4;
     grid-row: span 3;
     background-color: transparent;
@@ -400,13 +484,16 @@ ul {
     grid-template-rows: repeat(3, 1fr);
     overflow: overlay;
 }
-.textcontainer a{
+
+.textcontainer a {
     cursor: pointer;
     text-decoration: underline;
 }
-.textcontainer a:hover{
+
+.textcontainer a:hover {
     color: #09ff00;
 }
+
 .textcontainer h2 {
     /* grid-column: span 4; */
     margin: auto;
@@ -423,7 +510,7 @@ ul {
 .textcontainer h3 {
     /* grid-column: span 4; */
     margin: auto;
-    width: 80%;
+    width: 70%;
     margin-top: .5rem;
     font-size: 100%;
     grid-row: span 2;
@@ -432,17 +519,20 @@ ul {
     text-align: justify;
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
-.textcontainer button{
+
+.textcontainer button {
     grid-row: span 1;
     height: auto;
     margin: .5rem 2rem;
 }
-.textcontainer button:hover{
 
-}
-.unitylogo{
+.textcontainer button:hover {}
+
+.unitylogo {
     border-radius: 1rem;
+    max-height: fit-content;
 }
+
 .ranking-container {
     grid-column: span 1;
     grid-row: span 6;
@@ -538,12 +628,67 @@ ul {
 
 .contact {}
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 680px) {
     .nav-container .links {
         display: none;
         opacity: 0;
     }
+    .projects {
+    grid-column: span 3;
+    grid-row: span 6;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(7, minmax(0, 1fr));
+    gap: 1rem;
+    /* row-gap: 1rem; */
+    margin: 1rem 1rem 1rem 0rem;
+}
 
+.theProjects {
+    border-radius: 2rem;
+    grid-column: span 2;
+    grid-row: span 2;
+    backdrop-filter: blur(14px) saturate(180%);
+    -webkit-backdrop-filter: blur(14px) saturate(180%);
+    background-color: rgba(0, 166, 185, 0.2);
+    /* border: px solid rgba(255, 255, 255, 0.1); */
+    margin: 0rem 2rem;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+
+}
+
+.theProjects .mainProjects {
+    background-color: transparent;
+    grid-column: span 1;
+}
+.theSkills {
+    grid-column: span 2;
+    grid-row: span 1;
+    backdrop-filter: blur(14px) saturate(180%);
+    -webkit-backdrop-filter: blur(14px) saturate(180%);
+    background-color: rgba(0, 166, 185, 0.2);
+    /* border: px solid rgba(255, 255, 255, 0.1); */
+    margin: 0rem 2rem;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    /* max-height: 15rem; */
+    align-items: center;
+    justify-content: center;
+    color: #00eeff;
+}
+
+.theSkills img {
+    background-color: transparent;
+    grid-column: span 1;
+    grid-row: span 1;
+    width: 50%;
+    height: auto;
+    /* filter: invert(9%) sepia(13%) saturate(4419%) hue-rotate(160deg) brightness(92%) contrast(102%); */
+    margin: auto;
+}
     @keyframes navDisapper {
         0% {
             opacity: 1;
@@ -566,7 +711,7 @@ ul {
 
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 680px) {
     .nav-container.visible .links {
         display: block;
         opacity: 1;
@@ -608,5 +753,4 @@ ul {
         background-color: transparent;
         transition: 1s all ease;
     }
-}
-</style>
+}</style>
