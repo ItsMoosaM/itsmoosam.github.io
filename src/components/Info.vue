@@ -129,19 +129,24 @@ const toggleNav = () => {
                 <div class="textcontainer">
                     <h2>Back to Life</h2>
                     <h3>
-                        A platformer  I made for a game jam.
+                        A platformer game I made for the <a href="https://gaming-m.itch.io/back-to-life" target="_blank" rel="noopener noreferrer">GameDev.tv Game Jam 2022</a>. For the theme: DEATH IS ONLY THE BEGINNING.
+
                     </h3>
                     <!-- <button>More Info</button> -->
                 </div>
+                <a href="https://sharemygame.com/@Gaming_M/back-to-life" target="_blank"><img
+                        src="../assets/backToLifeIMG.png" alt=""></a>
                 <div class="mainProjects"></div>
             </div>
             <div class="theProjects 3">
-                <div class="mainProjects"></div>
+                <!-- <div class="mainProjects"> </div> -->
+                <a href="https://itsmoosam.github.io/mmdb-store-ics3u-assignment-06/" target="_blank"><img
+                            src="..\assets\mmdbIMG.png" alt=""></a>
                 <div class="textcontainer">
                     <h2>Web Developement</h2>
                     <h3>
-                        I have also been learning web development on and off for about a year and this portfolio has
-                        been developed with the skills I have learnt.
+                        I have also been learning web development on and off for more than an year and this portfolio has
+                        been developed with the skills I have learnt. On the left is a movie website I made that uses the TMDB API.
                     </h3>
                     <!-- <button>More Info</button> -->
                 </div>
@@ -470,9 +475,31 @@ ul {
     grid-column: span 2;
     grid-row: span 3;
     width: 80%;
+    max-width: 350px;
     height: auto;
     /* filter: invert(9%) sepia(13%) saturate(4419%) hue-rotate(160deg) brightness(92%) contrast(102%); */
     margin: auto;
+}
+
+.theProjects a {
+    color: #00eeff;
+    background-color: transparent;
+    grid-column: span 2;
+    grid-row: span 3;
+    width: 60%;
+    max-width: 350px;
+    height: auto;
+    /* filter: invert(9%) sepia(13%) saturate(4419%) hue-rotate(160deg) brightness(92%) contrast(102%); */
+    margin: auto;
+}
+.theProjects img{
+    border-radius: 0.25rem;
+}
+.theProjects a:hover {
+    width: 68%;
+    cursor: pointer;
+    /* animation: ease-in; */
+    transition: 0.3s;
 }
 
 .textcontainer {
@@ -530,7 +557,8 @@ ul {
 
 .unitylogo {
     border-radius: 1rem;
-    max-height: fit-content;
+    /* height: ; */
+    /* width: auto; */
 }
 
 .ranking-container {
@@ -633,62 +661,65 @@ ul {
         display: none;
         opacity: 0;
     }
+
     .projects {
-    grid-column: span 3;
-    grid-row: span 6;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(7, minmax(0, 1fr));
-    gap: 1rem;
-    /* row-gap: 1rem; */
-    margin: 1rem 1rem 1rem 0rem;
-}
+        grid-column: span 3;
+        grid-row: span 6;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(7, minmax(0, 1fr));
+        gap: 1rem;
+        /* row-gap: 1rem; */
+        margin: 1rem 1rem 1rem 0rem;
+    }
 
-.theProjects {
-    border-radius: 2rem;
-    grid-column: span 2;
-    grid-row: span 2;
-    backdrop-filter: blur(14px) saturate(180%);
-    -webkit-backdrop-filter: blur(14px) saturate(180%);
-    background-color: rgba(0, 166, 185, 0.2);
-    /* border: px solid rgba(255, 255, 255, 0.1); */
-    margin: 0rem 2rem;
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    grid-template-rows: repeat(1, 1fr);
+    .theProjects {
+        border-radius: 2rem;
+        grid-column: span 2;
+        grid-row: span 2;
+        backdrop-filter: blur(14px) saturate(180%);
+        -webkit-backdrop-filter: blur(14px) saturate(180%);
+        background-color: rgba(0, 166, 185, 0.2);
+        /* border: px solid rgba(255, 255, 255, 0.1); */
+        margin: 0rem 2rem;
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(1, 1fr);
 
-}
+    }
 
-.theProjects .mainProjects {
-    background-color: transparent;
-    grid-column: span 1;
-}
-.theSkills {
-    grid-column: span 2;
-    grid-row: span 1;
-    backdrop-filter: blur(14px) saturate(180%);
-    -webkit-backdrop-filter: blur(14px) saturate(180%);
-    background-color: rgba(0, 166, 185, 0.2);
-    /* border: px solid rgba(255, 255, 255, 0.1); */
-    margin: 0rem 2rem;
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    /* max-height: 15rem; */
-    align-items: center;
-    justify-content: center;
-    color: #00eeff;
-}
+    .theProjects .mainProjects {
+        background-color: transparent;
+        grid-column: span 1;
+    }
 
-.theSkills img {
-    background-color: transparent;
-    grid-column: span 1;
-    grid-row: span 1;
-    width: 50%;
-    height: auto;
-    /* filter: invert(9%) sepia(13%) saturate(4419%) hue-rotate(160deg) brightness(92%) contrast(102%); */
-    margin: auto;
-}
+    .theSkills {
+        grid-column: span 2;
+        grid-row: span 1;
+        backdrop-filter: blur(14px) saturate(180%);
+        -webkit-backdrop-filter: blur(14px) saturate(180%);
+        background-color: rgba(0, 166, 185, 0.2);
+        /* border: px solid rgba(255, 255, 255, 0.1); */
+        margin: 0rem 2rem;
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        /* max-height: 15rem; */
+        align-items: center;
+        justify-content: center;
+        color: #00eeff;
+    }
+
+    .theSkills img {
+        background-color: transparent;
+        grid-column: span 1;
+        grid-row: span 1;
+        width: 50%;
+        height: auto;
+        /* filter: invert(9%) sepia(13%) saturate(4419%) hue-rotate(160deg) brightness(92%) contrast(102%); */
+        margin: auto;
+    }
+
     @keyframes navDisapper {
         0% {
             opacity: 1;
@@ -753,4 +784,5 @@ ul {
         background-color: transparent;
         transition: 1s all ease;
     }
-}</style>
+}
+</style>
